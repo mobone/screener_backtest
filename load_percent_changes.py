@@ -4,8 +4,8 @@ import time
 con = lite.connect('./mldata.db')
 cur = con.cursor()
 
-dates = { 'q1_2013': ('2013-01-02', '2013-03-31'),
-		  'q2_2013': ('2013-04-01', '2013-06-31'), 
+dates = { 'q1_2013': ('2013-01-02', '2013-03-28'),
+		  'q2_2013': ('2013-04-01', '2013-06-28'), 
 		  'q3_2013': ('2013-07-01', '2013-09-30'),
 		  'q4_2013': ('2013-10-01', '2013-12-31'),
 		  'q1_2014': ('2014-01-02', '2014-03-31'),
@@ -36,7 +36,6 @@ for ticker in data['Ticker']:
             string = (ticker, date, (final-initial)/initial)
             final_output.append(string)
         except Exception as e:
-#            print e
             pass
 df = DataFrame(final_output, columns = [ 'Ticker', 'Period', 'Percent Change'] )
 print df
